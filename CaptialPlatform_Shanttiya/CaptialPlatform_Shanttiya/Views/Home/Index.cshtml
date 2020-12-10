@@ -1,0 +1,60 @@
+﻿
+@model CaptialPlatform_Shanttiya.Models.Account
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h3>Account Listing</h3>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountHolder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentBalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpeningDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ShowallAccount)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountHolder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentBalance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { AccountNumber = item.AccountNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { AccountNumber = item.AccountNumber })
+            </td>
+        </tr>
+    }
+
+</table>
